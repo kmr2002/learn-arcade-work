@@ -26,29 +26,34 @@ def main():
         print("Q. Quit.")
         user_choice = input("What is your choice? ")
 
+        # Quit
         if user_choice.upper() == "Q":
             print("You have quit this program.")
             done = True
 
+        # Status Check
         elif user_choice.upper() == "E":
             print("You have traveled", miles_traveled, "miles.")
             print("You have", initial_meals - hunger, "meals left.")
             print("The aliens are", miles_traveled - aliens_traveled, "miles behind you")
 
+        # Stop for gas
         elif user_choice.upper() == "D":
             print("Your ships tank is full.")
             my_number = random.randrange(7, 14)
             aliens_traveled += my_number
 
+        # Ahead full speed
         elif user_choice.upper() == "C":
             my_number = random.randrange(10, 20)
             print("You just traveled", my_number, "miles.")
             hunger += 1
-            my_number1 = random.randrange(1, 3)
+            my_number1 = random.randrange(1, 4)
             ship_gas += my_number1
             my_number2 = random.randrange(7, 14)
             aliens_traveled += my_number2
 
+        # Ahead moderate speed
         elif user_choice.upper() == "B":
             my_number = random.randrange(5, 12)
             miles_traveled += my_number
@@ -57,42 +62,52 @@ def main():
             ship_gas += 1
             my_number1 = random.randrange(7, 14)
             aliens_traveled += my_number1
+            # You found an oasis
+            my_number = random.randrange(1, 20)
+            if my_number == 10:
+                print("You found a food supply and free gas!")
+                initial_meals = 3
+                hunger = 0
+                ship_gas = 0
 
+        # Eat a meal
         elif user_choice.upper() == "A":
             if initial_meals > 0:
                 initial_meals -= 1
                 hunger = 0
+                print("You are full.")
             elif initial_meals >= 4:
-                print("There was an error, yoo don't have any meals left.")
+                print("There was an error, you don't have any meals left.")
+            # You found an oasis
+            my_number = random.randrange(1, 20)
+            if my_number == 10:
+                print("You found a food supply and free gas!")
+                initial_meals = 3
+                hunger = 0
+                ship_gas = 0
 
         if hunger > 6:
             print("You died of hunger.")
             done = True
-
-        if hunger > 4:
+            break
+        elif hunger > 4:
             print("You are hungry.")
 
+    if not done:
         if ship_gas > 8:
             print("You ran out of gas.")
-
         if ship_gas > 5:
             print("You are low on gas.")
 
+    if not done:
         if aliens_traveled >= miles_traveled:
             print("You have been caught by the aliens!")
             done = True
-
         if aliens_traveled >= miles_traveled - 15:
             print("The aliens are getting close!")
 
         if miles_traveled >= 200:
             print("You have won the game!")
 
-        my_number = random.randrange(1, 20)
-        if my_number == 10:
-            print("You found a food supply and free gas!")
-            initial_meals = 3
-            hunger = 0
-            ship_gas = 0
 
 main()
