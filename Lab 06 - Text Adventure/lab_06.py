@@ -14,21 +14,21 @@ class Room:
 
 def main():
     room_list = []
-    room = Room("You are in the hallway, there is a door to your North and East.", 3, 1, None, None)
+    room = Room("You are in the hallway, there is a door to your north and east.", 3, 1, None, None)
     room_list.append(room)
     room = Room("You are in the dining room, there are doors in all directions.", 4, 2, 7, 0)
     room_list.append(room)
-    room = Room("You are in the kitchen, there is a door to the North and West.", 5, None, None, 1)
+    room = Room("You are in the kitchen, there is a door to the north and west.", 5, None, None, 1)
     room_list.append(room)
-    room = Room("You are in the bathroom, there is a door to the South and East.", None, 4, 0, None)
+    room = Room("You are in the bathroom, there is a door to the south and east.", None, 4, 0, None)
     room_list.append(room)
     room = Room("You ar in the living room, there are doors in all directions.", 6, 5, 1, 3)
     room_list.append(room)
-    room = Room("You are in the bedroom, there is a door to the South and West.", None, None, 2, 4)
+    room = Room("You are in the bedroom, there is a door to the south and west.", None, None, 2, 4)
     room_list.append(room)
-    room = Room("You are in the library, there is on a door to the South.", None, None, 4, None)
+    room = Room("You are in the library, there is on a door to the south.", None, None, 4, None)
     room_list.append(room)
-    room = Room("You are in the office, there is a door to the North.", 1, None, None, None)
+    room = Room("You are in the office, there is a door to the north.", 1, None, None, None)
     room_list.append(room)
     current_room = 0
 
