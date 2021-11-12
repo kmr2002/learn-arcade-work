@@ -126,8 +126,12 @@ class MyGame(arcade.Window):
     def on_mouse_motion(self, x, y, dx, dy):
         """ Handle Mouse Motion """
         # Move the center of the player sprite to match the mouse x, y
-        self.player_sprite.center_x = x
-        self.player_sprite.center_y = y
+        if self.score > 0:
+            self.player_sprite.center_x = x
+            self.player_sprite.center_y = y
+        else:
+            self.player_sprite.center_x = 50
+            self.player_sprite.center_y = 50
 
     def update(self, delta_time):
         """ Movement and game logic """
@@ -138,17 +142,24 @@ class MyGame(arcade.Window):
 
         # Loop through each colliding sprite, remove it, and add to the score.
         for coin in coins_hit_list:
-            arcade.play_sound(self.meow)
-            coin.reset_pos()
-            self.score -= 1
+            if self.score > 0:
+                arcade.play_sound(self.meow)
+                coin.reset_pos()
+                self.score -= 1
+            else:
+                self.score = 0
 
         for fire in self.fire_list:
             fire.follow_sprite(self.player_sprite)
         fire_hit_list = arcade.check_for_collision_with_list(self.player_sprite, self.fire_list)
         for fire in fire_hit_list:
-            arcade.play_sound(self.jellyfish_sting)
-            fire.remove_from_sprite_lists()
-            self.score += 3
+            if self.score > 0:
+                arcade.play_sound(self.jellyfish_sting)
+                fire.remove_from_sprite_lists()
+                self.score += 3
+            else:
+                fire.remove_from_sprite_lists()
+                self.score = 0
 
 
 def main():
