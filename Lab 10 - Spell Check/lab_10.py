@@ -4,10 +4,12 @@ Lab 10 = Spell Check
 
 import re
 
+
 # This function take sin a line of text and returns
 # a list of words in the line
 def split_line(line):
     return re.findall('[A-Za-z]+(?:\'[A-Za-z]+)?', line)
+
 
 def main():
     # Reading into an array
@@ -33,5 +35,8 @@ def main():
     my_file = open("AliceInWonderLand200.txt")
     for line in my_file:
         line = line.strip()
+        split_line(line)
     my_file.close()
+
+
 main()

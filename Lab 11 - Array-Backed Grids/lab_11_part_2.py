@@ -44,11 +44,7 @@ class MyGame(arcade.Window):
         arcade.set_background_color(arcade.color.BLACK)
 
     def on_draw(self):
-        """
-        Render the screen.
-        """
-
-        # This command has to happen before we start drawing
+        # Render the screen
         arcade.start_render()
 
         # Draw the grid
@@ -71,7 +67,6 @@ class MyGame(arcade.Window):
         """
         Called when the user presses a mouse button.
         """
-
         # Change the x/y screen coordinates to grid coordinates
         column = x // (WIDTH + MARGIN)
         row = y // (HEIGHT + MARGIN)
