@@ -1,0 +1,36 @@
+Kyrsten Rehberg
+1 Dec. 2021
+Quantitative Reasoning Reflection
+
+1.
+
+2. When initially opening a program, seeing a crowded screen can be overwhelming. Starting off the code by
+having lots of space makes it easier on the eyes and then grouping like stuff together helps makes reading
+and comprehending the code easier. When working on Lab 3: Drawing with Functions, there were many different
+parts that I grouped together when writing the code for the main function I kept the clouds grouped together,
+but they were separate from the stars, pumpkins, and witch hats that were all separated into their own groups.
+While reading the code, using clear variable and function names that describe what the code about helps to
+make it more clear; using "temperature" instead of "t." Many of the codes we used were pretty descriptive
+and easy to figure out what they were saying, like the print function: "print()." Whether they are or aren't
+that clear and easy to understand right off the bat, adding comments both helped myself and anyone who may
+try to read my code understand what is going on. The comments I used both described how the algorithm worked
+and why I was using that specific algorithm which helped me understand later on why I used it.
+
+
+3. When I run my code and get an error, or it just crashes, I start by looking at the error messages it gives
+me, which sometimes can be enough. Since I am not the most advanced in coding, there were times when the error
+messages ended up confusing me more. To keep from so much confusion, I ran the code often. Running the code often
+allowed me to more easily narrow down where the error might be. Once I found the general area, I started by
+checking to make sure that the code typed doesn't have any problems that would cause an error. If there didn't
+seem to be any problems with that code, I moved on to finding another solution. I started trying other things to
+try and find a solution or see if I could get a different error to work with. Some of my solutions were simple
+and easy fixes but many weren't, and I had to find a solution with many hours of trial and error. Lots of times
+I would look back on earlier codes I did on that project or on previous projects, and I would also search through
+the book to help me. Sometimes I didn't receive an actual error message but the code just wasn't running the way
+I thought it would or that I wanted it to, so I would use the same trial and error method until I got to where I
+wanted.
+
+4.
+Easy to mess up when using algorithms, algorithms limit diverse opinions(TikTok, YouTube and everything else)
+Stats in school and sports limitations: could have great days or awful days that balance out: inconsistency that you wouldn't see with
+just looking at someone's stats

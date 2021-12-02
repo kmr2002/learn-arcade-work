@@ -1,11 +1,12 @@
 """
-Lab 10 = Spell Check
+
+Lab 10 - Spell Check
 """
 
 import re
 
 
-# This function take sin a line of text and returns
+# This functions takes in a line of text and returns
 # a list of words in the line
 def split_line(line):
     return re.findall('[A-Za-z]+(?:\'[A-Za-z]+)?', line)
@@ -19,24 +20,44 @@ def main():
         line = line.strip()
         dictionary_list.append(line)
     my_file.close()
-    print("There were", len(dictionary_list), "names in the file.")
+    print("---Linear Search---")
 
-    # linear search
+    # Linear Search
     i = 0
-    while i < len(dictionary_list) and dictionary_list[i] == "Key":
-        i += 1
+    with open("AliceInWonderLand200.txt") as my_text:
+        for line in my_text:
+            i += 1
+            word_list = split_line(line)
+            for word in word_list:
+                key = word.upper()
+                current_position = 0
+                while current_position < len(dictionary_list) and dictionary_list[current_position] != key:
+                    current_position += 1
+                if current_position >= len(dictionary_list):
+                    print("line", i, "possible misspelled word:", word)
 
-    if i == len(dictionary_list):
-        print("The name was not in the list")
-    else:
-        print("The name is at position", i)
+    print("---binary search---")
+    i = 0
+    with open("AliceInWonderLand200.txt") as my_text:
+        for line in my_text:
+            i += 1
+            word_list = split_line(line)
+            for word in word_list:
+                key = word.upper()
+                lower_bound = 0
+                upper_bound = len(dictionary_list) - 1
+                found = False
 
-    # Open Alice in Wonderland file
-    my_file = open("AliceInWonderLand200.txt")
-    for line in my_file:
-        line = line.strip()
-        split_line(line)
-    my_file.close()
+                while lower_bound <= upper_bound and not found:
+                    middle = (lower_bound + upper_bound) // 2
+                    if dictionary_list[middle] < key:
+                        lower_bound = middle + 1
+                    elif dictionary_list[middle] > key:
+                        upper_bound = middle - 1
+                    else:
+                        found = True
 
+                if not found:
+                    print("Line", i, "possible misspelled word:", word)
 
 main()

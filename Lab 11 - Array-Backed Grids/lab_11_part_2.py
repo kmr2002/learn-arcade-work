@@ -1,4 +1,5 @@
 """
+
 Lab 11 - Array-Backed Grids
 Part 2
 """
@@ -71,12 +72,11 @@ class MyGame(arcade.Window):
         column = x // (WIDTH + MARGIN)
         row = y // (HEIGHT + MARGIN)
 
-        print(f"Click coordinates: ({x}, {y}). Grid coordinates: ({row}, {column})")
+        # print(f"Click coordinates: ({x}, {y}). Grid coordinates: ({row}, {column})")
 
         # Make sure we are on-grid. It is possible to click in the upper right
         # corner in the margin and go to a grid location that doesn't exist
         if row < ROW_COUNT and column < COLUMN_COUNT:
-
             # Flip the location between 1 and 0.
             if self.grid[row][column] == 0:
                 self.grid[row][column] = 1
@@ -84,20 +84,37 @@ class MyGame(arcade.Window):
                 self.grid[row][column] = 0
 
         # Write a loop that will count all of the cells that are selected in the grid and print them out:
+        cells = 0
+        for row in range(ROW_COUNT):
+            for column in range(COLUMN_COUNT):
+                if self.grid[row][column] == 1:
+                    cells += 1
+        print(cells, "cells are selected.")
 
         # Write another loop that will print how many cells are selected in each row:
-
         # update the code so it prints the count in both rows and columns
         # Update the code so that the program will also print how many cells are continuously selected in a row,
         # if that number is greater than 2
-
-        # continuous_count = 0
-        # if (current grid location) == 1:
-            # continuous_count += 1
-        # if (current grid location) == 0:
-            # if continuous_count > 2:
-                # print(continuous_count)
-                # continuous_count = 0
+        for row in range(ROW_COUNT):
+            row_total = 0
+            continuous_count = 0
+            for column in range(COLUMN_COUNT):
+                if self.grid[row][column] == 1:
+                    row_total += 1
+                    continuous_count += 1
+                if self.grid[row][column] == 0:
+                    if continuous_count > 2:
+                        print("There are", continuous_count, "continuous blocks on row", row, "selected.")
+                    continuous_count = 0
+            if continuous_count > 2:
+                print("There are", continuous_count, "continuous blocks on row", row, "selected.")
+                print("Row", row, "has", row_total, "cells selected.")
+        for column in range(COLUMN_COUNT):
+            column_total = 0
+            for row in range(ROW_COUNT):
+                if self.grid[row][column] == 1:
+                    column_total += 1
+                    print("Column", column, "has", column_total, "cells selected.")
 
 
 def main():
